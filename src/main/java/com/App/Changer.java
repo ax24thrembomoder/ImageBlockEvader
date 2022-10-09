@@ -10,6 +10,8 @@ import java.util.Properties;
 import java.util.Random;
 import java.io.IOException;
 
+// -- This is a very raw version of the program so a lot of code you see here is quite subpar -- 
+
 public class Changer {
 
     // configuration
@@ -95,6 +97,7 @@ public class Changer {
 
 
         // generate desired resize values and resize via  .resizeImage()
+        // TODO: refactor
         double randommodifier = (((double) random.nextInt(100))/1000) + 0.01 ; // random modifier from 0.01 to 0.11
 
         if(  ((random.nextBoolean() == true || image_too_small))  && !image_too_big ){ //
@@ -134,7 +137,6 @@ public class Changer {
         return extension;
     }
 
-    // edit first line in method to change how filenames are generated
     private File randomizeFilename(File file, String initialextension){
         String filename = "default";
         StringBuilder s = new StringBuilder();
@@ -214,10 +216,6 @@ public class Changer {
         }
     }
 
-    /*private static void pullUpGUI(){
-        GUIRunner gui = new GUIRunner();
-        gui.start();
-    }*/
 
     public static void main(String[] args){
         Changer c = new Changer();
